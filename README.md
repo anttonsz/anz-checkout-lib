@@ -2,39 +2,41 @@
 
 Librería de Web Components construida con Lit + Vite.
 
-## Scripts (package.json)
+## Documentación para desarrolladores
+
+### Scripts (package.json)
 
 - `clean`: `rm -rf dist`  
-  Borra la carpeta `dist` para empezar limpio.
+  Limpia la salida de build.
 
 - `typecheck`: `tsc --noEmit`  
-  Revisa tipos de TypeScript, pero no genera archivos.
+  Valida TypeScript sin generar archivos.
 
 - `build:types`: `tsc -p tsconfig.build.json`  
-  Genera solo los archivos de tipos (`.d.ts`) usando configuración especial.
+  Genera solo tipos (`.d.ts`).
 
 - `build`: `npm run clean && npm run typecheck && vite build && npm run build:types`  
-  Flujo completo: limpiar, validar tipos, generar JS de la librería y generar tipos.
+  Build completo de JS + tipos.
 
 - `prepublishOnly`: `npm run build`  
-  Antes de `npm publish`, obliga a compilar para no publicar algo roto.
+  Fuerza build antes de publicar.
 
-## Campos `main`, `module`, `types` (package.json)
+### Salidas del paquete (package.json)
 
 - `main: "./dist/index.cjs"`  
-  Entrada para entornos CommonJS (`require`).
+  Entrada CommonJS (`require`).
 
 - `module: "./dist/index.js"`  
-  Entrada ESM (`import`), usada por bundlers modernos.
+  Entrada ESM (`import`).
 
 - `types: "./dist/index.d.ts"`  
-  Tipos TypeScript que verá quien instale tu librería.
+  Tipos TypeScript del paquete.
 
-## Uso recomendado de la librería (modular)
+## Documentación de uso
 
 Se recomienda importar por componente, no toda la librería.
 
-### Correcto (granular)
+### Import recomendado (granular)
 
 ```ts
 import 'anz-checkout-lib/anz-button';
@@ -46,7 +48,7 @@ Luego en HTML:
 <anz-button></anz-button>
 ```
 
-### Evitar como uso principal
+### Import global (evitar como principal)
 
 ```ts
 import 'anz-checkout-lib';
