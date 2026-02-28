@@ -8,7 +8,7 @@ import { customElement, property } from 'lit/decorators.js'
  * @csspart button - The button
  */
 @customElement('anz-button')
-export class MyElement extends LitElement {
+export class AnzButton extends LitElement {
   @property()
   docsHint = 'base button'
 
@@ -92,6 +92,6 @@ export class MyElement extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'anz-button': MyElement
+    'anz-button': AnzButton
   }
 }
