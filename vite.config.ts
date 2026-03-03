@@ -1,12 +1,11 @@
-import { resolve } from 'node:path'
 import { defineConfig } from 'vite'
 
 export default defineConfig({
   build: {
     lib: {
       entry: {
-        index: resolve(__dirname, 'src/index.ts'),
-        'anz-button': resolve(__dirname, 'src/anz-button.ts'),
+        index: 'src/index.ts',
+        'anz-button': 'src/anz-button.ts',
       },
       formats: ['es', 'cjs'],
       fileName: (format, entryName) =>
